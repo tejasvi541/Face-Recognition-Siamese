@@ -1,0 +1,7 @@
+venv
+training_checkpoints
+data/
+application_data/verification_images
+application_data/input_image
+lfw
+siamesemodelv2.h5

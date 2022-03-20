@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  ml:
+    container_name: ml
+    build:
+      context: .
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    volumes:
+      - "W:/Work/Deep-Learning/VGG19:/tf/"
+      # - "/dev/video0:/dev/video0"
+      # - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "8888:8888"
+      - "8080:8080"
